@@ -50,4 +50,4 @@ end
 end
 end
 end)
-print("RK's Tristana Loaded")
+PrintChat('<font color = \"#aa00ff\">RK Tristana</font> </font> <font color = \"#0094ff\"> Loaded </font>')
