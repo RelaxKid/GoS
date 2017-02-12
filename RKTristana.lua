@@ -40,13 +40,13 @@ for _, enemy in pairs(GetEnemyHeroes()) do
 		eDMG = CalcDamage(myHero, enemy, (10*GetCastLevel(myHero,_E)+52+((0.18*(GetCastLevel(myHero,_E))+0.38)*(GetBaseDamage(myHero) + GetBonusDmg(myHero)))+(0.6*GetBonusAP(myHero))) + ((GotBuff(enemy,"tristanaechargesound")-1)*(3*GetCastLevel(myHero,_E)+22+((0.049*(GetCastLevel(myHero,_E))+0.120)*(GetBaseDamage(myHero) + GetBonusDmg(myHero)))+(0.15*GetBonusAP(myHero)))), 0 ) - GetHPRegen(enemy)*4
 elseif GotBuff(enemy,"tristanaechargesound") == 0 then
 eDMG = 0
+end
 	if CanUseSpell(myHero, _R) == READY and ValidTarget(enemy,GetCastRange(myHero, _R)) then
 		rDMG = CalcDamage(myHero, enemy, 0, 100*GetCastLevel(myHero,_R)+ 245 + (GetBonusAP(myHero)))
 			if GetCurrentHP(enemy) < rDMG+eDMG then
 				CastTargetSpell(enemy, _R)
 			end
 	end
-end
 end
 end
 end)
