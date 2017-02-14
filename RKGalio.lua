@@ -1,4 +1,5 @@
 --y u looking here?
+--credits to Noddy,Zwei,Shulepin and Toshibiotro :wub: (dont get mad about order Kappa)
 if GetObjectName(GetMyHero()) ~= "Galio" then return end
 
 require("OpenPredict")
