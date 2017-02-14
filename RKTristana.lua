@@ -51,4 +51,4 @@ end
 end
 end)
 PrintChat('<font color = \"#aa00ff\">RK Tristana</font> </font> <font color = \"#0094ff\"> Loaded </font>')
-PrintChat('<font color = \"#0094ff\"> By RelaxKid </font>')
+PrintChat('<font color = \"#ff3feb\"> By RelaxKid </font>')
