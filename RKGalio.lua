@@ -1,5 +1,4 @@
 --y u looking here?
---credits to Noddy,Zwei,Shulepin and Toshibiotro :wub: (dont get mad about order Kappa)
 if GetObjectName(GetMyHero()) ~= "Galio" then return end
 
 require("OpenPredict")
@@ -42,14 +41,27 @@ end)
         return c
     end
 
+
+
 OnTick(function()
 	local target = GetCurrentTarget()
 	local myHeroPos = GetOrigin(myHero)
 	local myHitBox = GetHitBox(myHero)
 	local pI = GetPrediction(target, GalioQ)
 	local pI = GetPrediction(target, GalioE)
-
 	if target == nil then return end 
+
+	OnUpdateBuff(function(unit,buff)
+if unit == myHero and buff.Name == "GalioIdolOfDurand" then
+    IOW.movementEnabled = false
+end
+end)
+
+	OnRemoveBuff(function(unit,buff)
+if unit == myHero and buff.Name == "GalioIdolOfDurand" then
+	IOW.movementEnabled = true
+end
+end)
 	
 	if IOW:Mode() == "Combo" then
     if pI and pI.hitChance >= 0.25 and GalioMenu.Combo.Q:Value() and CanUseSpell(myHero, _Q) == READY then
@@ -60,7 +72,7 @@ OnTick(function()
     end
 
     if CanUseSpell(myHero,_R) == READY and ValidTarget(target, 560) and GalioMenu.Combo.R:Value() and EnemiesAround2(myHero.pos,560) >= GalioMenu.Combo.RX:Value() then
-      if GetCurrentHP(target) < CalcDamage(myHero,target,0.60*GetBonusAP(myHero))+(125+100*GetCastLevel(myHero,_R)) then
+      if GetCurrentHP(target) < CalcDamage(myHero,target,0.60*GetBonusAP(myHero))+(100+100*GetCastLevel(myHero,_R)) then
           CastSpell(_R)
         end
       end
