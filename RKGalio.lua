@@ -74,7 +74,7 @@ end)
 
     if CanUseSpell(myHero,_R) == READY and ValidTarget(target, 560) and GalioMenu.Combo.R:Value() and EnemiesAround2(myHero.pos,560) >= GalioMenu.Combo.RX:Value() then
       if GetCurrentHP(target) < CalcDamage(myHero,target,0.60*GetBonusAP(myHero))+(100+100*GetCastLevel(myHero,_R)) then
-          CastSpell(_R)
+          CastTargetSpell(myHero, _R)
         end
       end
     end
