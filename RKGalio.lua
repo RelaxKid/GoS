@@ -64,10 +64,10 @@ OnTick(function()
 	if target == nil then return end 
 		
 	if IOW:Mode() == "Combo" then
-    if pI1 and pI.hitChance >= 0.25 and GalioMenu.Combo.Q:Value() and CanUseSpell(myHero, _Q) == READY then
+    if pI1 and pI1.hitChance >= 0.25 and GalioMenu.Combo.Q:Value() and CanUseSpell(myHero, _Q) == READY then
       CastSkillShot(_Q, pI.castPos)
     end
-    if pI2 and pI.hitChance >= 0.25 and GalioMenu.Combo.E:Value() and CanUseSpell(myHero, _E) == READY then
+    if pI2 and pI2.hitChance >= 0.25 and GalioMenu.Combo.E:Value() and CanUseSpell(myHero, _E) == READY then
       CastSkillShot(_E, pI.castPos)
     end
 
