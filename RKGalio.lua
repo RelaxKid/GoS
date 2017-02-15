@@ -42,16 +42,6 @@ end)
         return c
     end
 
-
-
-OnTick(function()
-	local target = GetCurrentTarget()
-	local myHeroPos = GetOrigin(myHero)
-	local myHitBox = GetHitBox(myHero)
-	local pI = GetPrediction(target, GalioQ)
-	local pI = GetPrediction(target, GalioE)
-	if target == nil then return end 
-
 	OnUpdateBuff(function(unit,buff)
 if unit == myHero and buff.Name == "GalioIdolOfDurand" then
     IOW.movementEnabled = false
@@ -63,7 +53,16 @@ if unit == myHero and buff.Name == "GalioIdolOfDurand" then
 	IOW.movementEnabled = true
 end
 end)
-	
+
+
+OnTick(function()
+	local target = GetCurrentTarget()
+	local myHeroPos = GetOrigin(myHero)
+	local myHitBox = GetHitBox(myHero)
+	local pI = GetPrediction(target, GalioQ)
+	local pI = GetPrediction(target, GalioE)
+	if target == nil then return end 
+		
 	if IOW:Mode() == "Combo" then
     if pI and pI.hitChance >= 0.25 and GalioMenu.Combo.Q:Value() and CanUseSpell(myHero, _Q) == READY then
       CastSkillShot(_Q, pI.castPos)
