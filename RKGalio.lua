@@ -80,14 +80,14 @@ OnTick(function()
 
     if GalioMenu.KillSteal.KSE:Value() then
 	    if pI2 and pI2.hitChance >= 0.25 and GalioMenu.Combo.E:Value() and CanUseSpell(myHero, _E) == READY then
-	    	if GetCurrentHP(target) < CalcDamage(myHero,target,0.60*GetBonusAP(myHero))+(15 + 45 * GetCastLevel(myHero,_E)) then 
+	    	if GetCurrentHP(enemy) < CalcDamage(myHero,enemy,0.60*GetBonusAP(myHero))+(15 + 45 * GetCastLevel(myHero,_E)) then 
       CastSkillShot(_E, pI2.castPos)
        end 
     end
  end
 if GalioMenu.KillSteal.KSQ:Value() then
 	    if pI1 and pI1.hitChance >= 0.25 and GalioMenu.Combo.Q:Value() and CanUseSpell(myHero, _Q) == READY then
-	    	if GetCurrentHP(target) < CalcDamage(myHero,target,0.60*GetBonusAP(myHero))+(25 + 55 * GetCastLevel(myHero,_Q)) then
+	    	if GetCurrentHP(enemy) < CalcDamage(myHero,enemy,0.60*GetBonusAP(myHero))+(25 + 55 * GetCastLevel(myHero,_Q)) then
       CastSkillShot(_Q, pI1.castPos)
        end
     end
