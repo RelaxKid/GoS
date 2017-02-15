@@ -65,10 +65,10 @@ OnTick(function()
 		
 	if IOW:Mode() == "Combo" then
     if pI1 and pI1.hitChance >= 0.25 and GalioMenu.Combo.Q:Value() and CanUseSpell(myHero, _Q) == READY then
-      CastSkillShot(_Q, pI.castPos)
+      CastSkillShot(_Q, pI1.castPos)
     end
     if pI2 and pI2.hitChance >= 0.25 and GalioMenu.Combo.E:Value() and CanUseSpell(myHero, _E) == READY then
-      CastSkillShot(_E, pI.castPos)
+      CastSkillShot(_E, pI2.castPos)
     end
 
     if CanUseSpell(myHero,_R) == READY and ValidTarget(target, 560) and GalioMenu.Combo.R:Value() and EnemiesAround2(myHero.pos,560) >= GalioMenu.Combo.RX:Value() then
@@ -79,16 +79,16 @@ OnTick(function()
     end
 
     if GalioMenu.KillSteal.KSE:Value() then
-	    if pI2 and pI.hitChance >= 0.25 and GalioMenu.Combo.E:Value() and CanUseSpell(myHero, _E) == READY then
+	    if pI2 and pI2.hitChance >= 0.25 and GalioMenu.Combo.E:Value() and CanUseSpell(myHero, _E) == READY then
 	    	if GetCurrentHP(target) < CalcDamage(myHero,target,0.60*GetBonusAP(myHero))+(15 + 45 * GetCastLevel(myHero,_E)) then 
-      CastSkillShot(_E, pI.castPos)
+      CastSkillShot(_E, pI2.castPos)
        end 
     end
  end
 if GalioMenu.KillSteal.KSQ:Value() then
-	    if pI1 and pI.hitChance >= 0.25 and GalioMenu.Combo.Q:Value() and CanUseSpell(myHero, _Q) == READY then
+	    if pI1 and pI1.hitChance >= 0.25 and GalioMenu.Combo.Q:Value() and CanUseSpell(myHero, _Q) == READY then
 	    	if GetCurrentHP(target) < CalcDamage(myHero,target,0.60*GetBonusAP(myHero))+(25 + 55 * GetCastLevel(myHero,_Q)) then
-      CastSkillShot(_Q, pI.castPos)
+      CastSkillShot(_Q, pI1.castPos)
        end
     end
  end
