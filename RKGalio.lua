@@ -59,15 +59,15 @@ OnTick(function()
 	local target = GetCurrentTarget()
 	local myHeroPos = GetOrigin(myHero)
 	local myHitBox = GetHitBox(myHero)
-	local pI = GetPrediction(target, GalioQ)
-	local pI = GetPrediction(target, GalioE)
+	local pI1 = GetPrediction(target, GalioQ)
+	local pI2 = GetPrediction(target, GalioE)
 	if target == nil then return end 
 		
 	if IOW:Mode() == "Combo" then
-    if pI and pI.hitChance >= 0.25 and GalioMenu.Combo.Q:Value() and CanUseSpell(myHero, _Q) == READY then
+    if pI1 and pI.hitChance >= 0.25 and GalioMenu.Combo.Q:Value() and CanUseSpell(myHero, _Q) == READY then
       CastSkillShot(_Q, pI.castPos)
     end
-    if pI and pI.hitChance >= 0.25 and GalioMenu.Combo.E:Value() and CanUseSpell(myHero, _E) == READY then
+    if pI2 and pI.hitChance >= 0.25 and GalioMenu.Combo.E:Value() and CanUseSpell(myHero, _E) == READY then
       CastSkillShot(_E, pI.castPos)
     end
 
@@ -79,14 +79,14 @@ OnTick(function()
     end
 
     if GalioMenu.KillSteal.KSE:Value() then
-	    if pI and pI.hitChance >= 0.25 and GalioMenu.Combo.E:Value() and CanUseSpell(myHero, _E) == READY then
+	    if pI2 and pI.hitChance >= 0.25 and GalioMenu.Combo.E:Value() and CanUseSpell(myHero, _E) == READY then
 	    	if GetCurrentHP(target) < CalcDamage(myHero,target,0.60*GetBonusAP(myHero))+(15 + 45 * GetCastLevel(myHero,_E)) then 
       CastSkillShot(_E, pI.castPos)
        end 
     end
  end
 if GalioMenu.KillSteal.KSQ:Value() then
-	    if pI and pI.hitChance >= 0.25 and GalioMenu.Combo.Q:Value() and CanUseSpell(myHero, _Q) == READY then
+	    if pI1 and pI.hitChance >= 0.25 and GalioMenu.Combo.Q:Value() and CanUseSpell(myHero, _Q) == READY then
 	    	if GetCurrentHP(target) < CalcDamage(myHero,target,0.60*GetBonusAP(myHero))+(25 + 55 * GetCastLevel(myHero,_Q)) then
       CastSkillShot(_Q, pI.castPos)
        end
