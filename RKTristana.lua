@@ -24,13 +24,13 @@ if TristanaMenu.Combo.E:Value() then
 	end
 end
 if TristanaMenu.Combo.R:Value() then
-	if CanUseSpell(myHero,_R) == READY and ValidTarget(target,GetCastRange(myHero,_R)) and GetCurrentHP(target) < CalcDamage(myHero, target, 0, 225 + 100*GetCastLevel(myHero,_R) + GetBonusAP(myHero)) then
+	if CanUseSpell(myHero,_R) == READY and ValidTarget(target,GetCastRange(myHero,_R)) and GetCurrentHP(target) < CalcDamage(myHero, target, 0, 200 + 100*GetCastLevel(myHero,_R) + GetBonusAP(myHero)) then
 		CastTargetSpell(target,_R)
 	end	
 end
 end
 if TristanaMenu.Combo.KSR:Value() then
-	if CanUseSpell(myHero, _R) == READY and ValidTarget(target,GetCastRange(myHero, _R)) and GetCurrentHP(target) < CalcDamage(myHero, target, 0, 225 + 100*GetCastLevel(myHero,_R) + GetBonusAP(myHero)) then
+	if CanUseSpell(myHero, _R) == READY and ValidTarget(target,GetCastRange(myHero, _R)) and GetCurrentHP(target) < CalcDamage(myHero, target, 0, 200 + 100*GetCastLevel(myHero,_R) + GetBonusAP(myHero)) then
 		CastTargetSpell(target, _R)
 	end
 end
@@ -42,7 +42,7 @@ elseif GotBuff(enemy,"tristanaechargesound") == 0 then
 eDMG = 0
 end
 	if CanUseSpell(myHero, _R) == READY and ValidTarget(enemy,GetCastRange(myHero, _R)) then
-		rDMG = CalcDamage(myHero, enemy, 0, 100*GetCastLevel(myHero,_R)+ 225 + (GetBonusAP(myHero)))
+		rDMG = CalcDamage(myHero, enemy, 0, 100*GetCastLevel(myHero,_R)+ 200 + (GetBonusAP(myHero)))
 			if GetCurrentHP(enemy) < rDMG+eDMG then
 				CastTargetSpell(enemy, _R)
 			end
